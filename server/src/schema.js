@@ -1,22 +1,25 @@
 const {gql} = require('graphql-tag');
 
+//  It's a tagged template literal, used for wrapping GraphQL strings
+//  This converts GraphQL strings into the format that Apollo libraries expect when working with operations and schemas, and it also enables syntax highlighting.
 const typeDefs = gql`
   type Query{
       "Get spacecats list for homepage"
-      spaceCats: [SpaceCat]
+      tracks: [Track]
   }
 
-  type SpaceCat{
+  type Track{
       id: ID!
-      name: String!
-      age: Int
-      missions: [Mission]
+      title: String!
+      author: Author
+      thumbnail: String!
+      length: Int!
+      modulesCount : Int!
   }
 
-  type Mission{
-      id : ID!
+  type Author{
       name: String!
-      description: String!
+      photo: String!
   }
 `;
 
